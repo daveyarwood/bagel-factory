@@ -4,24 +4,19 @@ This is my experiment: writing a bookmarklet in ClojureScript, along with a Boot
 
 **UNDER CONSTRUCTION**
 
-~~Step 1 is to get the Boot task pipeline working -- once I've got that, I will break it out into a standalone Boot task.~~ done
+~~Step 1 is to get the Boot task pipeline working -- once I've got that, I will break it out into a standalone Boot task.~~ [done! boot-bookmarklet is a thing now](https://github.com/adzerk-oss/boot-bookmarklet)
 
-Step 2 is to use the Boot task to write a bookmarklet (in ClojureScript) that replaces programming terms with breakfast terms.
+Step 2 is to use boot-bookmarklet to write a bookmarklet (in ClojureScript) that replaces programming terms with breakfast terms.
 
 ## Status / TODO
 
-* I have a working bookmarklet that does text replacement on the whole page, matching case. Unfortunately the bookmarklet link URL is 138,581 characters long, well over the 2000 character limit for a URL!
+* I have a working bookmarklet that replaces a couple words on the current page when you click it.
 
 * Still need to add a bunch of programming/breakfast word pairings, e.g. public => potato, static => sausage, void => blintz, etc.
 
-* At least in Chrome, I am still able to click the link on the HTML page that boot-bookmarklet generates, and it appears to be working. However, I can't drag the link into my bookmarks bar, presumably because the URL is way too long.
+* `external-bookmarklet` Boot task generates an html file with a bookmarklet link that sources a hosted .js file.
 
-* Next steps:
+* For the moment, I've compiled the ClojureScript source into JavaScript via `boot cljs` and manually uploaded the resulting `bagel_factory.js` file to Dropbox with a public URL, which I then fed to the `external-bookmarklet` task to generate the bookmarklet.
 
-  * Host the js file somewhere like on S3.
+* The next step is to automate this process into a single build task.
 
-    * Maybe use a Boot task to automate the process of building and uploading the js file.
-
-  * Generate a bookmarklet that just sources the hosted js file.
-
-    * Consider building this functionality into boot-bookmarklet since it will be super common.
