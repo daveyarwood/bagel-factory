@@ -2,7 +2,7 @@
   :source-paths #{"src"}
   :dependencies '[[org.clojure/clojure       "1.7.0"]
                   [org.clojure/clojurescript "1.7.228"]
-                  [adzerk/boot-bookmarklet   "0.2.0"]
+                  [adzerk/boot-bookmarklet   "0.2.1"]
                   [adzerk/boot-cljs          "1.7.228-1"]])
 
 (require '[adzerk.boot-bookmarklet :refer (bookmarklet external-bookmarklet)])
